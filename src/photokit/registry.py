@@ -1,22 +1,13 @@
-"""Filter registry.
-
-WORKSHOP NOTE
--------------
-This file is the intentional merge-conflict hotspot.
-When multiple contributors register new filters at the same
-time, they all edit the FILTERS dictionary below and the
-imports above — which produces real merge conflicts that
-teams will learn to resolve during the workshop.
-"""
-
 from .filters.base import Filter
 from .filters.grayscale import GrayscaleFilter
-from .filters.blur import BlurFilter  # <-- YENI IMPORT
+
+from .filters.sepia import SepiaFilter  # <-- YENI IMPORT
 
 FILTERS: dict[str, type[Filter]] = {
     "grayscale": GrayscaleFilter,
+    "sepia": SepiaFilter,  # <-- YENI KAYIT
     "blur": BlurFilter,  # <-- YENI KAYIT
-}
+
 
 
 def get_filter(name: str) -> Filter:
